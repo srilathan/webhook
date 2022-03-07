@@ -14,12 +14,18 @@ public class HelloController {
 
 	@GetMapping("/")
 	public String index() {
-		return "Greetings from Spring Boot!";
+		return "Greetings from Spring Boot Webhook!";
 	}
 //http://07d1-165-225-122-247.ngrok.io
-	@PostMapping///api/webhook
+	// send notificaton through this endpoing
+	//private make it as public url
+	//ngrock type
+	//ngrok http 8080
+	//it will craste as publiclic url.
+	//payload url we have to add //
+	@PostMapping//http://localhost:8080/api/webhook
 	public ResponseEntity<String> print(@RequestBody String requestBody) {
-		System.out.println("ysynnnnnnnnnnnnnnnnn   :"+requestBody);
+		System.out.println("webhook examplem   :"+requestBody);
 		return new ResponseEntity<String>(requestBody, HttpStatus.OK);
 	}
 
